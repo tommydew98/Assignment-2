@@ -20,7 +20,7 @@
         
         .inputbox {
             position: relative;
-            left: 5%;
+            left: 7%;
             display: block;
             top: 2vh;
             
@@ -37,14 +37,41 @@
         .thumb {
             width: 15vw;
             height: 15vh;
-            position: absolute;
+            position: relative;
             border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .title1 {
+            position: absolute;
+            
+            left: 16vw;
+            top: 0;
+            vertical-align: top;
+            width: auto;
             display: block;
+            font-size: 1.17em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        
+        .new {
+            position: absolute;
+            display: inline-block;
+            vertical-align: top;
+            left: 16vw;
+            top: 5vh;
+            width: auto;
+            
         }
         
         body {
             margin: 0;
         }
+        
     
     </style>
     
@@ -52,7 +79,7 @@
     
         <div>
             <button id="add">Add Stuff</button>
-            <input type="text" placeholder="Please paste image link" id="img" class="inputbox"/>
+            <input type="text" placeholder="Please paste image link" id="img12" class="inputbox"/>
             <input type="text" placeholder="Please enter your title" id="heading" class="inputbox"/>
             <input type="text" placeholder="Enter you message" id="msg" class="inputbox"/>
             <button id="clear">Clear</button>
@@ -68,30 +95,44 @@
         var add = document.getElementById("add");
         var stuff = document.getElementById("stuff");
         var clear = document.getElementById("clear");
-        var img = document.getElementById("img");
+        var img = document.getElementById("img12");
         var head = document.getElementById("heading");
         var msg = document.getElementById("msg");
         
         add.onclick = function() {
             var textbox = document.createElement("div");
+            
             document.getElementById("stuff").appendChild(textbox);
+            
             textbox.style.width = "66vw";
-            textbox.style.height = "15vh";
+            textbox.style.height = "auto";
             textbox.style.backgroundColor = "#0DFF9F";
-            textbox.style.display = "block";
+            textbox.style.display = "inline-block";
             textbox.style.position = "relative";
-            textbox.innerHTML = msg.value;
+            textbox.style.border = "2px solid black"
+            
             textbox.style.left = "16.5vw";
             
             
             var newimg = document.createElement("img");
             
-            newimg.src = "https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/14517589_1132893023464565_6769949488716546880_n.jpg?oh=b8b8c9eea13c0ea22c7da11ec226e841&oe=5868E72B";
+            newimg.src = img.value;
             newimg.className = "thumb";
+            
+            
+            
+            var h = document.createElement("title");
+            
+            h.innerHTML = head.value;
+            h.className = "title1";
+            
+            var text = document.createElement("message");
+            text.innerHTML = msg.value;
+            text.className = "new";
+            
             textbox.appendChild(newimg);
-            
-            
-            
+            textbox.appendChild(h);
+            textbox.appendChild(text);
             
             
         }
