@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment-2</title>
+    </head>
+    <style>
+        #add {
+            display: inline-block;
+            left: 1%;
+            position: fixed;
+            top: 2%;
+        }
+        
+        #clear {
+            display: inline-block;
+            right: 1%;
+            position: fixed;
+            top: 2%;
+        }
+        
+        .inputbox {
+            position: relative;
+            left: 5%;
+            display: block;
+            top: 2vh;
+            
+        }
+        
+        #stuff {
+            height: auto;
+            width: auto;
+            background-color: chocolate;
+            top: 5vh;
+            position: relative;
+        }
+        
+        .thumb {
+            width: 15vw;
+            height: 15vh;
+            position: absolute;
+            border-radius: 50px;
+            display: block;
+        }
+        
+        body {
+            margin: 0;
+        }
+    
+    </style>
+    
+    <body>
+    
+        <div>
+            <button id="add">Add Stuff</button>
+            <input type="text" placeholder="Please paste image link" id="img" class="inputbox"/>
+            <input type="text" placeholder="Please enter your title" id="heading" class="inputbox"/>
+            <input type="text" placeholder="Enter you message" id="msg" class="inputbox"/>
+            <button id="clear">Clear</button>
+        </div>
+        
+        <div id="stuff">
+        
+        </div>
+    
+    </body>
+    
+    <script>
+        var add = document.getElementById("add");
+        var stuff = document.getElementById("stuff");
+        var clear = document.getElementById("clear");
+        var img = document.getElementById("img");
+        var head = document.getElementById("heading");
+        var msg = document.getElementById("msg");
+        
+        add.onclick = function() {
+            var textbox = document.createElement("div");
+            document.getElementById("stuff").appendChild(textbox);
+            textbox.style.width = "66vw";
+            textbox.style.height = "15vh";
+            textbox.style.backgroundColor = "#0DFF9F";
+            textbox.style.display = "block";
+            textbox.style.position = "relative";
+            textbox.innerHTML = msg.value;
+            textbox.style.left = "16.5vw";
+            
+            
+            var newimg = document.createElement("img");
+            
+            newimg.src = "https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/14517589_1132893023464565_6769949488716546880_n.jpg?oh=b8b8c9eea13c0ea22c7da11ec226e841&oe=5868E72B";
+            newimg.className = "thumb";
+            textbox.appendChild(newimg);
+            
+            
+            
+            
+            
+        }
+        clear.onclick = function() {
+            document.getElementById("stuff").innerHTML = "";
+        }
+        
+        head.onclick = function() {
+            
+        }
+        
+        img.onclick = function() {
+            
+        }
+        
+        
+    
+    
+    </script>
+
+</html>
