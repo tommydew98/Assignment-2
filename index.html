@@ -72,7 +72,30 @@
             margin: 0;
         }
         
+        #createtab {
+            position: fixed;
+            bottom: -1000px;
+            background-color: beige;
+            width: auto;
+            height: auto;
+            text-align: center;
+            left: 0;
+            right: 0;
+            font-size: 100px;
+        }
     
+        #deletetab {
+            position: fixed;
+            bottom: -1000px;
+            background-color: beige;
+            width: auto;
+            height: auto;
+            text-align: center;
+            left: 0;
+            right: 0;
+            font-size: 100px;
+        }
+        
     </style>
     
     <body>
@@ -88,6 +111,9 @@
         <div id="stuff">
         
         </div>
+        
+        <div id="createtab">Item added</div>
+        <div id="deletetab">Item deleted</div>
     
     </body>
     
@@ -98,8 +124,15 @@
         var img = document.getElementById("img12");
         var head = document.getElementById("heading");
         var msg = document.getElementById("msg");
+        var div1 = document.getElementById("createtab");
+        var div2 = document.getElementById("deletetab");
         
         add.onclick = function() {
+            
+            
+            div1.style.bottom = "0px"
+            div2.style.bottom = "-1000px"
+            
             var textbox = document.createElement("div");
             
             document.getElementById("stuff").appendChild(textbox);
@@ -138,15 +171,11 @@
         }
         clear.onclick = function() {
             document.getElementById("stuff").innerHTML = "";
+            div1.style.bottom = "-1000px"
+            div2.style.bottom = "0px"
         }
         
-        head.onclick = function() {
-            
-        }
-        
-        img.onclick = function() {
-            
-        }
+
         
         
     
